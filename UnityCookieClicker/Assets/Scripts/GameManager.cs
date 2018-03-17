@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour {
 	private DateTime lastDateTime;
 	private const int ADD_TIME = 3;
 
-	uint fanUpRate;
-	uint incomeUpRate;
+	int fanUpRate;
+	int incomeUpRate;
 	static float RateOfReturn = 0.05f;
 
 	// Use this for initialization
@@ -36,27 +36,28 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	void updateFanAndIncome () {
 		lastDateTime = DateTime.UtcNow;
 		UserParameter.Fan += calculatFanUpRate ();
 		UserParameter.Income += calculatIncomeUpRate ();
 	}
-
-	uint calculatFanUpRate () {
+	// Fan算出式
+	int calculatFanUpRate () {
 		double uprate;
-		uint sumItemNum = ItemManager.MoviePostNum + ItemManager.BlogPostNum + ItemManager.LiveNum + ItemManager.EventAppearanceNum + ItemManager.SponsorContractNum + 1; // 末尾の+1はゼロ除算防止用
+		int sumItemNum = ItemManager.MoviePostNum + ItemManager.BlogPostNum + ItemManager.LiveNum + ItemManager.EventAppearanceNum + ItemManager.SponsorContractNum + 1; // 末尾の+1はゼロ除算防止用
 		uprate = Math.Sqrt((UserParameter.PlayerYarukiGetQuantity / sumItemNum)) - 1;
 		uprate = Math.Ceiling(uprate);
-		return (uint)uprate;
+		return (int)uprate;
 	}
-	uint calculatIncomeUpRate () {
+	// Income算出式
+	int calculatIncomeUpRate () {
 		int uprate;
 		uprate = Mathf.FloorToInt(UserParameter.Fan * RateOfReturn);
-		return (uint)uprate;
+		return uprate;
 	}
-
-	void RefreshScoreText () {
+	// スコア表示のリフレッシュ
+	public void RefreshScoreText () {
 		fanScore.GetComponent<Text> ().text = ": " + UserParameter.Fan.ToString("N0");
 		incomeScore.GetComponent<Text> ().text = ": " + UserParameter.Income.ToString("N0");
 		yarukiScore.GetComponent<Text> ().text = "YARUKI:\n" + UserParameter.PlayerYaruki.ToString("N0");

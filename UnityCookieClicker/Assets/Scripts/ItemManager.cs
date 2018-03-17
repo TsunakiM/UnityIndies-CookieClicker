@@ -3,40 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour {
-	private const uint MoviePostCostBase = 100;
-	private const uint BlogPostCostBase = 1000;
-	private const uint LiveCostBase = 10000;
-	private const uint EventAppearanceCostBase = 100000;
-	private const uint SponsorContractCostBase = 1000000;
+	private const int MoviePostCostBase = 100;
+	private const int BlogPostCostBase = 1000;
+	private const int LiveCostBase = 10000;
+	private const int EventAppearanceCostBase = 100000;
+	private const int SponsorContractCostBase = 1000000;
 
 	public static float CostUpRate = 10.0f;
 
-	public static uint MoviePostNum = 0;
-	public static uint BlogPostNum = 0;
-	public static uint LiveNum = 0;
-	public static uint EventAppearanceNum = 0;
-	public static uint SponsorContractNum = 0;
+	[SerializeField]
+	public static int MoviePostNum;
+	[SerializeField]
+	public static int BlogPostNum;
+	[SerializeField]
+	public static int LiveNum;
+	[SerializeField]
+	public static int EventAppearanceNum;
+	[SerializeField]
+	public static int SponsorContractNum;
 
-	public static uint MoviePostCurrentCost;
-	public static uint BlogPostCurrentCost;
-	public static uint LiveCurrentCost;
-	public static uint EventAppearanceCurrentCost;
-	public static uint SponsorContractCurrentCost;
+	public static int MoviePostCurrentCost;
+	public static int BlogPostCurrentCost;
+	public static int LiveCurrentCost;
+	public static int EventAppearanceCurrentCost;
+	public static int SponsorContractCurrentCost;
 
-	public static uint MoviePostIncreaseRate = 1;
-	public static uint BlogPostIncreaseRate = 10;
-	public static uint LiveIncreaseRate = 100;
-	public static uint EventAppearanceIncreaseRate = 1000;
-	public static uint SponsorContractIncreaseRate = 10000;
+	public static int MoviePostIncreaseRate = 1;
+	public static int BlogPostIncreaseRate = 10;
+	public static int LiveIncreaseRate = 100;
+	public static int EventAppearanceIncreaseRate = 1000;
+	public static int SponsorContractIncreaseRate = 10000;
 
 	// Use this for initialization
 	void Start () {
-		updateAllCurrentCost ();	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		updateAllCurrentCost ();
 	}
 
 	public void updateAllCurrentCost () {
@@ -63,9 +63,8 @@ public class ItemManager : MonoBehaviour {
 		SponsorContractCurrentCost =
 			calculatCost(Base:SponsorContractCostBase, CurrentNum:SponsorContractNum);
 	}
-
-	public uint calculatCost (uint Base, uint CurrentNum) {
+	public int calculatCost (int Base, int CurrentNum) {
 		int cal = Mathf.FloorToInt(Base * ((CostUpRate + (float)CurrentNum) /CostUpRate));
-		return (uint)cal;
+		return cal;
 	}
 }

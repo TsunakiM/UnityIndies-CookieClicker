@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using SaveGameExtension;
 
 public class ItemBtn : MonoBehaviour {
 	public GameObject itemCostObject;
@@ -22,14 +23,16 @@ public class ItemBtn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// 表示が何故かバグるので、Update関数で処理
 		refreshItemList ();
 	}
 	// アタッチされたボタンをタップしたときの挙動
 	public void tapItemBtn () {
 		addItemNum ();
+		SaveGameEx.SaveGameData();
 	}
 	// アタッチしたボタンの表示更新
-	void refreshText (uint itemCost, uint itemNum) {
+	void refreshText (int itemCost, int itemNum) {
 		itemCostObject.GetComponent<Text> ().text = " " + itemCost.ToString("N0") + "Y";
 		itemNumObject.GetComponent<Text> ().text = itemNum.ToString("N0") + " ";
 		itemListNowYaruki.GetComponent<ItemListNowYaruki> ().refreshItemListYarukiText ();
@@ -42,7 +45,7 @@ public class ItemBtn : MonoBehaviour {
 		}
 	}
 	// 購入できるかどうかの判定
-	void itemBuyProcessing (uint needCost) {
+	void itemBuyProcessing (int needCost) {
 		canBuyItem = true;
 		if (UserParameter.PlayerYaruki < needCost) {
 			canBuyItem = false;

@@ -4,16 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GoItemListBtn : MonoBehaviour {
-
-	// Use this for initialization
+	GameObject gameManager;
 	void Start () {
-		
+		gameManager = GameObject.Find("GameManager");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-
 	public void goItemList () {
 		SceneManager.LoadScene("ItemListScenes");
 	}

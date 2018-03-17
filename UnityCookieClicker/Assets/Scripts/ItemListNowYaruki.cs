@@ -10,11 +10,6 @@ public class ItemListNowYaruki : MonoBehaviour {
 	void Start () {
 		refreshItemListYarukiText();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void refreshItemListYarukiText () {
 		this.GetComponent<Text> ().text = " Y: " + UserParameter.PlayerYaruki.ToString("N0");

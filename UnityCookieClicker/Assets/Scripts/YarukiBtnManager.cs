@@ -12,15 +12,6 @@ public class YarukiBtnManager : MonoBehaviour {
 	public GameObject imageYarukiBtn;
 	public GameObject scoreTextPrefab;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void TapYarukiBtn () {
 		YarukiBtnAnimation();
 		CriateScoreTextPrefab ();
