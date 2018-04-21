@@ -64,7 +64,6 @@ public class ItemBtn : MonoBehaviour {
 					ItemManager.MoviePostNum++;
 					UserParameter.PlayerYarukiBase += ItemManager.MoviePostIncreaseRate;
 					itemManager.GetComponent<ItemManager> ().updateMoviePostCurrentCost();
-					// refreshText(ItemManager.MoviePostCurrentCost, ItemManager.MoviePostNum);
 				}
 				break;
 			case "BlogPost":
@@ -73,7 +72,6 @@ public class ItemBtn : MonoBehaviour {
 					ItemManager.BlogPostNum++;
 					UserParameter.PlayerYarukiBase += ItemManager.BlogPostIncreaseRate;
 					itemManager.GetComponent<ItemManager> ().updateBlogPostCurrentCost();
-					// refreshText(ItemManager.BlogPostCurrentCost, ItemManager.BlogPostNum);
 				}
 				break;
 			case "Live":
@@ -82,7 +80,6 @@ public class ItemBtn : MonoBehaviour {
 					ItemManager.LiveNum++;
 					UserParameter.PlayerYarukiBase += ItemManager.LiveIncreaseRate;
 					itemManager.GetComponent<ItemManager> ().updateLiveCurrentCost();
-					// refreshText(ItemManager.LiveCurrentCost, ItemManager.LiveNum);
 				}
 				break;
 			case "EventAppearancet":
@@ -91,7 +88,6 @@ public class ItemBtn : MonoBehaviour {
 					ItemManager.EventAppearanceNum++;
 					UserParameter.PlayerYarukiBase += ItemManager.EventAppearanceIncreaseRate;
 					itemManager.GetComponent<ItemManager> ().updateEventAppearancetCurrentCost();
-					// refreshText(ItemManager.EventAppearanceCurrentCost, ItemManager.EventAppearanceNum);
 				}
 				break;
 			case "SponsorContract":
@@ -100,7 +96,6 @@ public class ItemBtn : MonoBehaviour {
 					ItemManager.SponsorContractNum++;
 					UserParameter.PlayerYarukiBase += ItemManager.SponsorContractIncreaseRate;
 					itemManager.GetComponent<ItemManager> ().updateSponsorContractCurrentCost();
-					// refreshText(ItemManager.SponsorContractCurrentCost, ItemManager.SponsorContractNum);
 				}
 				break;
 			default:

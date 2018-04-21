@@ -40,7 +40,6 @@ namespace SaveGameExtension {
 			ItemManager.LiveNum = PlayerPrefs.GetInt (KEY_LIVE, 0);
 			ItemManager.EventAppearanceNum = PlayerPrefs.GetInt(KEY_EVENT, (int)0);
 			ItemManager.SponsorContractNum = PlayerPrefs.GetInt (KEY_SPONSOR, (int)0);
-			Debug.Log("Load Success!");
-		}	
+		}
 	}
 }

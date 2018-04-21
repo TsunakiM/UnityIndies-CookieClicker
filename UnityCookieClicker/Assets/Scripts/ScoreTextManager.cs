@@ -23,7 +23,7 @@ public class ScoreTextManager : MonoBehaviour {
 
 	// 自身を破棄すると同時に、スコアを加算(scoreTextBehaviorから呼ぶ)
 	void destroyScoreText () {
-		UserParameter.PlayerYaruki += UserParameter.PlayerYarukiGetQuantity;
+		UserParameter.PlayerYaruki = UserParameter.PlayerYarukiGetQuantity.AddIntAndIntLimitCheck(UserParameter.PlayerYaruki);
 		SaveGameEx.SaveGameData();
 		Destroy(this.gameObject);
 	}

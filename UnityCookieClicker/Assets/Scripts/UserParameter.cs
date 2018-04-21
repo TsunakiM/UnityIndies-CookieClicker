@@ -8,9 +8,8 @@ public class UserParameter : MonoBehaviour {
 	public static int PlayerYarukiBase;
 	public static int PlayerYarukiUpRate = 1;
 	public static int PlayerYarukiGetQuantity = PlayerYarukiBase * PlayerYarukiUpRate;
-	public static int Fan = 0;
-	public static int Income = 0;
-
+	public static int Fan, Income;
+	
     void Start () {
 		updateYarukiGetQuantity ();
 	}

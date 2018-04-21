@@ -8,6 +8,7 @@ public class StartScenesManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SaveGameEx.LoadGameData();
+		// PlayerPrefs.DeleteAll();
 		afterLoadRefresh();
 	}
 
@@ -18,7 +19,6 @@ public class StartScenesManager : MonoBehaviour {
 			(ItemManager.LiveNum * ItemManager.LiveIncreaseRate) +
 			(ItemManager.EventAppearanceNum * ItemManager.EventAppearanceIncreaseRate) +
 			(ItemManager.SponsorContractNum * ItemManager.SponsorContractIncreaseRate)
-			+1 
-			;
+			+ 1000000000;
 	}
 }

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject incomeScore;
 	public GameObject yarukiScore;
 	private DateTime lastDateTime;
-	private const int ADD_TIME = 3;
+	private const int ADD_TIME = 1;
 
 	int fanUpRate;
 	int incomeUpRate;
@@ -39,22 +39,24 @@ public class GameManager : MonoBehaviour {
 	
 	void updateFanAndIncome () {
 		lastDateTime = DateTime.UtcNow;
-		UserParameter.Fan += calculatFanUpRate ();
-		UserParameter.Income += calculatIncomeUpRate ();
+		UserParameter.Fan = calculatFanUpRate ();
+		UserParameter.Income = calculatIncomeUpRate ();
 	}
 	// Fan算出式
 	int calculatFanUpRate () {
-		double uprate;
-		int sumItemNum = ItemManager.MoviePostNum + ItemManager.BlogPostNum + ItemManager.LiveNum + ItemManager.EventAppearanceNum + ItemManager.SponsorContractNum + 1; // 末尾の+1はゼロ除算防止用
-		uprate = Math.Sqrt((UserParameter.PlayerYarukiGetQuantity / sumItemNum)) - 1;
-		uprate = Math.Ceiling(uprate);
-		return (int)uprate;
+		double doubleUprate;
+		int uprate;
+		double sumItemNum = ItemManager.MoviePostNum + ItemManager.BlogPostNum + ItemManager.LiveNum + ItemManager.EventAppearanceNum + ItemManager.SponsorContractNum + 1; // 末尾の+1はゼロ除算防止用
+		doubleUprate = Math.Sqrt((UserParameter.PlayerYarukiGetQuantity / sumItemNum)) - 1;
+		doubleUprate = Math.Ceiling(doubleUprate);
+		uprate = (int)doubleUprate;
+		return uprate.AddIntAndIntLimitCheck(UserParameter.Fan);
 	}
 	// Income算出式
 	int calculatIncomeUpRate () {
 		int uprate;
 		uprate = Mathf.FloorToInt(UserParameter.Fan * RateOfReturn);
-		return uprate;
+		return uprate.AddIntAndIntLimitCheck(UserParameter.Income);
 	}
 	// スコア表示のリフレッシュ
 	public void RefreshScoreText () {
