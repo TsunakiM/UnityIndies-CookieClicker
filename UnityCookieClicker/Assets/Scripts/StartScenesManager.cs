@@ -19,6 +19,6 @@ public class StartScenesManager : MonoBehaviour {
 			(ItemManager.LiveNum * ItemManager.LiveIncreaseRate) +
 			(ItemManager.EventAppearanceNum * ItemManager.EventAppearanceIncreaseRate) +
 			(ItemManager.SponsorContractNum * ItemManager.SponsorContractIncreaseRate)
-			+ 1000000000;
+			+ 1;
 	}
 }
