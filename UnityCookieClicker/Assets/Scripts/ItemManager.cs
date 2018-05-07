@@ -32,28 +32,23 @@ public class ItemManager : MonoBehaviour {
 	}
 	public void updateMoviePostCurrentCost () {
 		MoviePostCurrentCost =
-			calculatCost(Base:MoviePostCostBase, CurrentNum:MoviePostNum)
-			.AddIntAndIntLimitCheck(MoviePostCurrentCost);
+			calculatCost(Base:MoviePostCostBase, CurrentNum:MoviePostNum);
 	}
 	public void updateBlogPostCurrentCost () {
 		BlogPostCurrentCost =
-			calculatCost(Base:BlogPostCostBase, CurrentNum:BlogPostNum)
-			.AddIntAndIntLimitCheck(BlogPostCurrentCost);
+			calculatCost(Base:BlogPostCostBase, CurrentNum:BlogPostNum);
 	}
 	public void updateLiveCurrentCost () {
 		LiveCurrentCost = 
-			calculatCost(Base:LiveCostBase, CurrentNum:LiveNum)
-			.AddIntAndIntLimitCheck(LiveCurrentCost);
+			calculatCost(Base:LiveCostBase, CurrentNum:LiveNum);
 	}
 	public void updateEventAppearancetCurrentCost () {
 		EventAppearanceCurrentCost = 
-			calculatCost(Base:EventAppearanceCostBase, CurrentNum:EventAppearanceNum)
-			.AddIntAndIntLimitCheck(EventAppearanceCurrentCost);
+			calculatCost(Base:EventAppearanceCostBase, CurrentNum:EventAppearanceNum);
 	}
 	public void updateSponsorContractCurrentCost () {
 		SponsorContractCurrentCost =
-			calculatCost(Base:SponsorContractCostBase, CurrentNum:SponsorContractNum)
-			.AddIntAndIntLimitCheck(SponsorContractCurrentCost);
+			calculatCost(Base:SponsorContractCostBase, CurrentNum:SponsorContractNum);
 	}
 	public int calculatCost (int Base, int CurrentNum) {
 		int cal = Mathf.FloorToInt(Base * ((CostUpRate + (float)CurrentNum) /CostUpRate));

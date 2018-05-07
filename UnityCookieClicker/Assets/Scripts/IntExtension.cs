@@ -19,7 +19,7 @@ public static class IntExtension {
 	///</summary>
 	public static int AddIntAndIntLimitCheck(this int _willAdd, int baseVariable) {
 		int checkedNum;
-		// 加算する二値が上限値より大き場合、上限値で上書きする。
+		// 加算する二値が上限値より大きい場合、上限値で上書きする。
 		if (_willAdd + baseVariable > UPPER_LIMIT) {
 			checkedNum = UPPER_LIMIT;
 		// 二値の和が下限値未満になる場合、下限値で上書きする。
